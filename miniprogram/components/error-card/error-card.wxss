@@ -1,0 +1,41 @@
+.error-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.card-time {
+  font-size: 22rpx;
+  color: #bbb;
+}
+
+.card-topic {
+  font-size: 26rpx;
+  color: #4A90D9;
+  margin-bottom: 8rpx;
+}
+
+.card-question {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 12rpx;
+}
+
+.card-footer {
+  display: flex;
+  flex-wrap: wrap;
+}

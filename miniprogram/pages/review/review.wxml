@@ -1,0 +1,69 @@
+<view class="container">
+  <!-- 完成状态 -->
+  <view wx:if="{{completed}}" class="complete-card card">
+    <text class="complete-icon">🎉</text>
+    <text class="complete-title">今日复习完成！</text>
+    <text class="complete-desc">共复习 {{totalCompleted}} 道错题</text>
+    <view class="btn-primary" bindtap="goHome" style="margin-top: 40rpx;">返回首页</view>
+  </view>
+
+  <!-- 复习中 -->
+  <view wx:elif="{{items.length > 0}}">
+    <!-- 进度条 -->
+    <view class="progress-bar">
+      <view class="progress-fill" style="width: {{(currentIndex + 1) / items.length * 100}}%"></view>
+    </view>
+    <view class="progress-text">{{currentIndex + 1}} / {{items.length}}</view>
+
+    <block wx:for="{{items}}" wx:key="plan_id">
+      <view wx:if="{{index === currentIndex}}" class="card review-card">
+        <view class="review-header">
+          <text class="subject-badge {{item.subjectClass}}">{{item.subject}}</text>
+          <text class="review-round">第 {{item.review_round}} 轮复习</text>
+        </view>
+
+        <view class="review-topic">{{item.topic || '未分类'}}</view>
+
+        <view class="review-question">{{item.question_text}}</view>
+
+        <!-- 答案区域 -->
+        <view wx:if="{{showAnswer}}" class="answer-section">
+          <view class="divider"></view>
+          <view class="answer-row">
+            <view class="answer-item">
+              <text class="answer-label">我的答案</text>
+              <text class="answer-value">{{item.student_answer || '-'}}</text>
+            </view>
+            <view class="answer-item">
+              <text class="answer-label">正确答案</text>
+              <text class="answer-value correct">{{item.correct_answer || '-'}}</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 操作按钮 -->
+        <view class="review-actions">
+          <view class="btn-primary" wx:if="{{!showAnswer}}" bindtap="toggleAnswer">
+            查看答案
+          </view>
+
+          <view wx:if="{{showAnswer}}" class="rating-area">
+            <text class="rating-title">掌握程度</text>
+            <view class="rating-stars">
+              <view class="star" wx:for="{{5}}" wx:for-item="star" wx:key="*this"
+                bindtap="rateMastery" data-level="{{star + 1}}">
+                {{star + 1}}⭐
+              </view>
+            </view>
+            <text class="rating-hint">1=完全不会 5=完全掌握</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:else class="empty-tip">
+    暂无待复习的题目
+  </view>
+</view>

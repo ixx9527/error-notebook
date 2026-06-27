@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: error_notebook
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    env_file: backend/.env
+    environment:
+      # 容器内 DB 主名为 db，覆盖 .env 中的 localhost
+      - DATABASE_URL=postgresql+asyncpg://user:password@db:5432/error_notebook
+    depends_on:
+      - db
+    restart: unless-stopped
+    volumes:
+      - ./backend/uploads:/app/uploads
+
+volumes:
+  pgdata:

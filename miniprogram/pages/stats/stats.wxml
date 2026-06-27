@@ -1,0 +1,68 @@
+<view class="container">
+  <view class="card">
+    <view class="section-title">学习概览</view>
+    <view class="stats-grid">
+      <view class="stat-box">
+        <text class="stat-num">{{stats.total_questions || 0}}</text>
+        <text class="stat-label">错题总数</text>
+      </view>
+      <view class="stat-box">
+        <text class="stat-num">{{stats.review_completed || 0}}</text>
+        <text class="stat-label">已复习</text>
+      </view>
+      <view class="stat-box">
+        <text class="stat-num">{{stats.review_total || 0}}</text>
+        <text class="stat-label">总计划</text>
+      </view>
+      <view class="stat-box">
+        <text class="stat-num">{{stats.review_rate || 0}}%</text>
+        <text class="stat-label">完成率</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 录入趋势 -->
+  <view class="card">
+    <view class="trend-header">
+      <text class="section-title" style="margin-bottom:0">录入趋势</text>
+      <view class="trend-switch">
+        <text class="trend-btn {{trendDays === 7 ? 'active' : ''}}" bindtap="switchTrend" data-days="7">7天</text>
+        <text class="trend-btn {{trendDays === 30 ? 'active' : ''}}" bindtap="switchTrend" data-days="30">30天</text>
+      </view>
+    </view>
+    <view class="trend-chart">
+      <view class="trend-bar-wrap" wx:for="{{trend}}" wx:key="date">
+        <view class="trend-bar" style="height: {{item.height}}%"></view>
+        <text class="trend-date" wx:if="{{trendDays <= 7 || index % 5 === 0}}">{{item.date}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 掌握度分布 -->
+  <view class="card" wx:if="{{mastery.length > 0}}">
+    <view class="section-title">掌握程度分布</view>
+    <view class="mastery-item" wx:for="{{mastery}}" wx:key="level">
+      <text class="mastery-label">{{item.label}}</text>
+      <view class="mastery-track">
+        <view class="mastery-fill mastery-{{item.level}}" style="width: {{item.width}}%"></view>
+      </view>
+      <text class="mastery-count">{{item.count}}</text>
+    </view>
+  </view>
+
+  <!-- 科目分布 -->
+  <view class="card" wx:if="{{stats.subjectList.length > 0}}">
+    <view class="section-title">科目分布</view>
+    <chart type="pie" data="{{subjectChartData}}" width="{{chartWidth}}" height="{{chartHeight}}"></chart>
+  </view>
+
+  <!-- 错因分布 -->
+  <view class="card" wx:if="{{stats.errorTypeList.length > 0}}">
+    <view class="section-title">错因分布</view>
+    <chart type="bar" data="{{errorTypeChartData}}" width="{{chartWidth}}" height="{{chartHeight}}"></chart>
+  </view>
+
+  <view class="empty-tip" wx:if="{{!loading && !stats.total_questions}}">
+    还没有错题数据
+  </view>
+</view>

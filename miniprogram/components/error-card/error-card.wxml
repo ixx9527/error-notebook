@@ -1,0 +1,11 @@
+<view class="error-card" bindtap="onTap">
+  <view class="card-header">
+    <text class="subject-badge {{subjectClass}}">{{question.subject}}</text>
+    <text class="card-time" wx:if="{{showTime}}">{{question.timeAgo}}</text>
+  </view>
+  <view class="card-topic">{{question.topic || '未分类'}}</view>
+  <view class="card-question">{{question.question_text}}</view>
+  <view class="card-footer" wx:if="{{showTags && question.tags.length > 0}}">
+    <text class="tag" wx:for="{{question.tags}}" wx:key="*this">{{item}}</text>
+  </view>
+</view>

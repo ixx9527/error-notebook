@@ -1,0 +1,86 @@
+<view class="container">
+  <!-- 步骤1：选择图片 -->
+  <view wx:if="{{currentStep === 'choose'}}" class="choose-area">
+    <view class="choose-card" bindtap="chooseImage">
+      <text class="choose-icon">📷</text>
+      <text class="choose-text">拍照或选择错题图片</text>
+      <text class="choose-hint">支持 JPG / PNG，最大 1MB</text>
+    </view>
+  </view>
+
+  <!-- 步骤2：预览 + 识别 -->
+  <view wx:if="{{currentStep === 'preview'}}">
+    <view class="card">
+      <image src="{{imagePath}}" mode="widthFix" class="preview-image"></image>
+    </view>
+    <view class="btn-group">
+      <view class="btn-secondary" bindtap="retake">重拍</view>
+      <view class="btn-primary" bindtap="startRecognize">
+        {{recognizing ? '识别中...' : '智能识别'}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 步骤3：识别结果 -->
+  <view wx:if="{{currentStep === 'result'}}">
+    <view class="card" wx:for="{{results}}" wx:key="index">
+      <view class="result-header">
+        <text class="section-title">第{{index + 1}}题</text>
+        <view class="subject-badge" bindtap="onSubjectChange" data-idx="{{index}}">
+          {{item.subject || '选择科目'}}
+        </view>
+      </view>
+
+      <view class="field-group">
+        <text class="field-label">题目</text>
+        <textarea class="field-input" value="{{item.question_text}}"
+          bindinput="onFieldInput" data-idx="{{index}}" data-field="question_text"
+          auto-height maxlength="2000" />
+      </view>
+
+      <view class="field-group">
+        <text class="field-label">知识点</text>
+        <input class="field-input" value="{{item.topic}}"
+          bindinput="onFieldInput" data-idx="{{index}}" data-field="topic" />
+      </view>
+
+      <view class="field-row">
+        <view class="field-group half">
+          <text class="field-label">我的答案</text>
+          <input class="field-input" value="{{item.student_answer}}"
+            bindinput="onFieldInput" data-idx="{{index}}" data-field="student_answer" />
+        </view>
+        <view class="field-group half">
+          <text class="field-label">正确答案</text>
+          <input class="field-input" value="{{item.correct_answer}}"
+            bindinput="onFieldInput" data-idx="{{index}}" data-field="correct_answer" />
+        </view>
+      </view>
+
+      <view class="field-group">
+        <text class="field-label">错因分析</text>
+        <textarea class="field-input" value="{{item.error_analysis}}"
+          bindinput="onFieldInput" data-idx="{{index}}" data-field="error_analysis"
+          auto-height maxlength="500" />
+      </view>
+
+      <view class="field-group" wx:if="{{item.tags && item.tags.length > 0}}">
+        <view class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</view>
+      </view>
+    </view>
+
+    <view class="btn-group">
+      <view class="btn-secondary" bindtap="goBack">返回修改</view>
+      <view class="btn-primary" bindtap="confirmSave">确认保存</view>
+    </view>
+  </view>
+
+  <!-- 识别中遮罩 -->
+  <view class="loading-mask" wx:if="{{recognizing}}">
+    <view class="loading-content">
+      <view class="loading-spinner"></view>
+      <text class="loading-text">AI 正在分析错题...</text>
+      <text class="loading-hint">预计需要 10-30 秒</text>
+    </view>
+  </view>
+</view>

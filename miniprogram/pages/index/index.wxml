@@ -1,0 +1,75 @@
+<view class="container">
+  <!-- 今日复习卡片 -->
+  <view class="card review-banner" bindtap="goReview">
+    <view class="review-banner-left">
+      <text class="review-count">{{todayCount}}</text>
+      <text class="review-label">今日待复习</text>
+    </view>
+    <view class="review-banner-right">
+      <text class="review-go" wx:if="{{todayCount > 0}}">开始复习 →</text>
+      <text class="review-go done" wx:else>今日已完成 ✓</text>
+    </view>
+  </view>
+
+  <!-- 快捷入口 -->
+  <view class="quick-actions">
+    <view class="action-item" bindtap="goUpload">
+      <view class="action-icon camera">📷</view>
+      <text class="action-text">拍照录入</text>
+    </view>
+    <view class="action-item" bindtap="goErrorList">
+      <view class="action-icon book">📚</view>
+      <text class="action-text">错题本</text>
+    </view>
+    <view class="action-item" bindtap="goStats">
+      <view class="action-icon chart">📊</view>
+      <text class="action-text">统计分析</text>
+    </view>
+  </view>
+
+  <!-- 统计概览 -->
+  <view class="card" wx:if="{{stats.total_questions}}">
+    <view class="section-title">学习概览</view>
+    <view class="stats-row">
+      <view class="stat-item">
+        <text class="stat-num">{{stats.total_questions || 0}}</text>
+        <text class="stat-label">错题总数</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-num">{{stats.review_completed || 0}}</text>
+        <text class="stat-label">已复习</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-num">{{stats.review_rate || 0}}%</text>
+        <text class="stat-label">完成率</text>
+      </view>
+    </view>
+
+    <view class="divider"></view>
+
+    <view class="section-title">科目分布</view>
+    <view class="subject-bars">
+      <view class="subject-bar-item" wx:for="{{stats.by_subject}}" wx:key="index">
+        <text class="bar-label">{{item[0]}}</text>
+        <view class="bar-track">
+          <view class="bar-fill" style="width: {{item[1] / stats.total_questions * 100}}%"></view>
+        </view>
+        <text class="bar-count">{{item[1]}}题</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 今日待复习列表预览 -->
+  <view class="card" wx:if="{{todayItems.length > 0}}">
+    <view class="section-title">今日待复习</view>
+    <view class="today-item" wx:for="{{todayItems}}" wx:key="plan_id">
+      <text class="subject-badge {{item.subjectClass}}">{{item.subject}}</text>
+      <text class="today-topic">{{item.topic || '未分类'}}</text>
+      <text class="today-round">第{{item.review_round}}轮</text>
+    </view>
+  </view>
+
+  <view class="empty-tip" wx:if="{{!loading && todayCount === 0 && !stats.total_questions}}">
+    还没有错题，点击下方按钮开始录入吧 📷
+  </view>
+</view>

@@ -1,0 +1,148 @@
+.review-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #4A90D9, #357ABD);
+  color: #fff;
+}
+
+.review-banner-left {
+  display: flex;
+  align-items: baseline;
+  gap: 12rpx;
+}
+
+.review-count {
+  font-size: 64rpx;
+  font-weight: 700;
+}
+
+.review-label {
+  font-size: 28rpx;
+  opacity: 0.9;
+}
+
+.review-go {
+  font-size: 28rpx;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 12rpx 24rpx;
+  border-radius: 24rpx;
+}
+
+.review-go.done {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.quick-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20rpx;
+}
+
+.action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.action-icon {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44rpx;
+  background: #fff;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.action-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.stat-num {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #4A90D9;
+}
+
+.stat-label {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.subject-bar-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.bar-label {
+  width: 80rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.bar-track {
+  flex: 1;
+  height: 16rpx;
+  background: #f0f0f0;
+  border-radius: 8rpx;
+  margin: 0 16rpx;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #4A90D9;
+  border-radius: 8rpx;
+  transition: width 0.3s;
+}
+
+.bar-count {
+  font-size: 22rpx;
+  color: #999;
+  width: 60rpx;
+  text-align: right;
+}
+
+.today-item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+  gap: 16rpx;
+}
+
+.today-item:last-child {
+  border-bottom: none;
+}
+
+.today-topic {
+  flex: 1;
+  font-size: 26rpx;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.today-round {
+  font-size: 22rpx;
+  color: #999;
+}

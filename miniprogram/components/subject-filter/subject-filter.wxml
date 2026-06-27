@@ -1,0 +1,7 @@
+<view class="filter-bar">
+  <view class="filter-item {{current === (item === '全部' ? '' : item) ? 'active' : ''}}"
+    wx:for="{{subjects}}" wx:key="*this"
+    bindtap="onSelect" data-subject="{{item === '全部' ? '' : item}}">
+    {{item}}
+  </view>
+</view>

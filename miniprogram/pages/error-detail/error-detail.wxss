@@ -1,0 +1,115 @@
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.detail-date {
+  font-size: 24rpx;
+  color: #bbb;
+}
+
+.detail-topic {
+  font-size: 28rpx;
+  color: #4A90D9;
+}
+
+.detail-text {
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: #333;
+}
+
+.detail-text.analysis {
+  background: #FFF8E1;
+  border-left: 6rpx solid #FFC107;
+  padding: 16rpx 20rpx;
+  border-radius: 0 8rpx 8rpx 0;
+  margin-top: 12rpx;
+  color: #666;
+}
+
+.answer-row {
+  display: flex;
+  gap: 30rpx;
+}
+
+.answer-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.answer-label {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.answer-value {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.answer-value.wrong {
+  color: #e74c3c;
+}
+
+.answer-value.right {
+  color: #27ae60;
+}
+
+.error-type-badge {
+  display: inline-block;
+  background: #FDECEA;
+  color: #e74c3c;
+  padding: 6rpx 20rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  margin-bottom: 12rpx;
+}
+
+.detail-edit-btn {
+  margin-top: 20rpx;
+}
+
+.field-group {
+  margin-bottom: 20rpx;
+}
+
+.field-label {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.field-input {
+  width: 100%;
+  padding: 16rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.field-row {
+  display: flex;
+  gap: 20rpx;
+}
+
+.field-group.half {
+  flex: 1;
+}
+
+.btn-group {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 24rpx;
+}
+
+.btn-group .btn-secondary,
+.btn-group .btn-primary {
+  flex: 1;
+}

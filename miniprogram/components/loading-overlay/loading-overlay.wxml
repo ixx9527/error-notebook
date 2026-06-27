@@ -1,0 +1,6 @@
+<view class="overlay" wx:if="{{show}}">
+  <view class="overlay-content">
+    <view class="spinner"></view>
+    <text class="overlay-text">{{text}}</text>
+  </view>
+</view>

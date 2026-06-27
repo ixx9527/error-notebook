@@ -1,0 +1,54 @@
+# ===== Vibecoding 规则文件 =====
+.qwen/
+.cursorrules
+.cursor/
+.claude/
+.codeium/
+.continue/
+.aider*
+.windsurfrules
+.github/copilot-instructions.md
+CLAUDE.md
+AGENTS.md
+QWEN.md
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+venv/
+.venv/
+env/
+
+# ===== 环境变量 / 密钥 =====
+.env
+.env.*
+!.env.example
+
+# ===== 用户上传文件 =====
+backend/uploads/
+
+# ===== 依赖 =====
+node_modules/
+miniprogram/miniprogram_npm/
+
+# ===== IDE / 编辑器 =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== 操作系统 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Docker =====
+.dockerignore.bak

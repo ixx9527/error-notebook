@@ -1,0 +1,80 @@
+<view class="container" wx:if="{{question}}">
+  <!-- 查看模式 -->
+  <view wx:if="{{!editing}}">
+    <view class="card">
+      <view class="detail-header">
+        <text class="subject-badge {{question.subjectClass}}">{{question.subject}}</text>
+        <text class="detail-date">{{question.createdDate}}</text>
+      </view>
+      <view class="detail-topic">{{question.topic || '未分类'}}</view>
+    </view>
+
+    <view class="card">
+      <view class="section-title">题目</view>
+      <view class="detail-text">{{question.question_text}}</view>
+    </view>
+
+    <view class="card" wx:if="{{question.student_answer || question.correct_answer}}">
+      <view class="answer-row">
+        <view class="answer-item">
+          <text class="answer-label">我的答案</text>
+          <text class="answer-value wrong">{{question.student_answer || '-'}}</text>
+        </view>
+        <view class="answer-item">
+          <text class="answer-label">正确答案</text>
+          <text class="answer-value right">{{question.correct_answer || '-'}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="card" wx:if="{{question.error_type || question.error_analysis}}">
+      <view class="section-title">错因分析</view>
+      <view class="error-type-badge" wx:if="{{question.error_type}}">{{question.error_type}}</view>
+      <view class="detail-text analysis">{{question.error_analysis}}</view>
+    </view>
+
+    <view class="card" wx:if="{{question.tags && question.tags.length > 0}}">
+      <view class="tag" wx:for="{{question.tags}}" wx:key="*this">{{item}}</view>
+    </view>
+
+    <view class="btn-primary detail-edit-btn" bindtap="startEdit">编辑纠错</view>
+  </view>
+
+  <!-- 编辑模式 -->
+  <view wx:if="{{editing}}">
+    <view class="card">
+      <view class="field-group">
+        <text class="field-label">题目</text>
+        <textarea class="field-input" value="{{editData.question_text}}"
+          bindinput="onEditInput" data-field="question_text" auto-height />
+      </view>
+      <view class="field-group">
+        <text class="field-label">知识点</text>
+        <input class="field-input" value="{{editData.topic}}"
+          bindinput="onEditInput" data-field="topic" />
+      </view>
+      <view class="field-row">
+        <view class="field-group half">
+          <text class="field-label">我的答案</text>
+          <input class="field-input" value="{{editData.student_answer}}"
+            bindinput="onEditInput" data-field="student_answer" />
+        </view>
+        <view class="field-group half">
+          <text class="field-label">正确答案</text>
+          <input class="field-input" value="{{editData.correct_answer}}"
+            bindinput="onEditInput" data-field="correct_answer" />
+        </view>
+      </view>
+      <view class="field-group">
+        <text class="field-label">错因分析</text>
+        <textarea class="field-input" value="{{editData.error_analysis}}"
+          bindinput="onEditInput" data-field="error_analysis" auto-height />
+      </view>
+    </view>
+
+    <view class="btn-group">
+      <view class="btn-secondary" bindtap="cancelEdit">取消</view>
+      <view class="btn-primary" bindtap="saveEdit">保存</view>
+    </view>
+  </view>
+</view>

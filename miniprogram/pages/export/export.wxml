@@ -1,0 +1,61 @@
+<view class="container">
+  <!-- Tab 切换 -->
+  <view class="tab-bar">
+    <view class="tab-item {{tab === 'normal' ? 'active' : ''}}" bindtap="switchTab" data-tab="normal">按条件导出</view>
+    <view class="tab-item {{tab === 'monthly' ? 'active' : ''}}" bindtap="switchTab" data-tab="monthly">月度报告</view>
+  </view>
+
+  <!-- 孩子选择 -->
+  <view class="card" wx:if="{{children.length > 1}}">
+    <view class="field-group">
+      <text class="field-label">选择孩子</text>
+      <picker mode="selector" range="{{children}}" range-key="name" value="{{childIndex}}" bindchange="onChildChange">
+        <view class="picker-value">{{children[childIndex].name}} ▾</view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 普通导出 -->
+  <view class="card" wx:if="{{tab === 'normal'}}">
+    <view class="section-title">导出条件</view>
+    <view class="field-group">
+      <text class="field-label">按科目</text>
+      <picker mode="selector" range="{{subjects}}" value="{{subjectIndex}}" bindchange="onSubjectChange">
+        <view class="picker-value">{{subjects[subjectIndex] || '全部科目'}} ▾</view>
+      </picker>
+    </view>
+    <view class="field-group">
+      <text class="field-label">开始日期</text>
+      <picker mode="date" value="{{dateFrom}}" bindchange="onDateFromChange">
+        <view class="picker-value">{{dateFrom || '不限'}} ▾</view>
+      </picker>
+    </view>
+    <view class="field-group">
+      <text class="field-label">结束日期</text>
+      <picker mode="date" value="{{dateTo}}" bindchange="onDateToChange">
+        <view class="picker-value">{{dateTo || '不限'}} ▾</view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 月度报告 -->
+  <view class="card" wx:if="{{tab === 'monthly'}}">
+    <view class="section-title">选择月份</view>
+    <view class="field-group">
+      <text class="field-label">年份</text>
+      <picker mode="selector" range="{{['2024','2025','2026','2027']}}" value="{{year - 2024}}" bindchange="onYearChange">
+        <view class="picker-value">{{year}}年 ▾</view>
+      </picker>
+    </view>
+    <view class="field-group">
+      <text class="field-label">月份</text>
+      <picker mode="selector" range="{{['1','2','3','4','5','6','7','8','9','10','11','12']}}" value="{{month - 1}}" bindchange="onMonthChange">
+        <view class="picker-value">{{month}}月 ▾</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="btn-primary" bindtap="exportPdf" style="margin-top: 20rpx;">
+    {{exporting ? '导出中...' : (tab === 'monthly' ? '生成月度报告' : '导出 PDF')}}
+  </view>
+</view>
