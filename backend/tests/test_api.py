@@ -41,6 +41,91 @@ async def test_expired_token_rejected(client, test_user):
     assert "过期" in resp.json()["detail"]
 
 
+@pytest.mark.asyncio
+async def test_register_success(client):
+    resp = await client.post(
+        "/api/auth/register",
+        json={"username": "testuser", "password": "password123"},
+    )
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["code"] == 0
+    assert "token" in data["data"]
+    assert data["data"]["user_id"] is not None
+
+
+@pytest.mark.asyncio
+async def test_register_duplicate_username(client):
+    payload = {"username": "dupuser", "password": "password123"}
+    resp = await client.post("/api/auth/register", json=payload)
+    assert resp.status_code == 200
+
+    resp = await client.post("/api/auth/register", json=payload)
+    assert resp.status_code == 400
+    assert "已存在" in resp.json()["detail"]
+
+
+@pytest.mark.asyncio
+async def test_register_validation_error(client):
+    resp = await client.post(
+        "/api/auth/register",
+        json={"username": "ab", "password": "password123"},
+    )
+    assert resp.status_code == 422
+
+    resp = await client.post(
+        "/api/auth/register",
+        json={"username": "validuser", "password": "123"},
+    )
+    assert resp.status_code == 422
+
+
+@pytest.mark.asyncio
+async def test_account_login_success(client):
+    await client.post(
+        "/api/auth/register",
+        json={"username": "loginuser", "password": "mypassword"},
+    )
+
+    resp = await client.post(
+        "/api/auth/login/account",
+        json={"username": "loginuser", "password": "mypassword"},
+    )
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["code"] == 0
+    token = data["data"]["token"]
+
+    # token 可用于鉴权
+    resp = await client.get("/api/users/profile", headers={"Authorization": f"Bearer {token}"})
+    assert resp.status_code == 200
+
+
+@pytest.mark.asyncio
+async def test_account_login_wrong_password(client):
+    await client.post(
+        "/api/auth/register",
+        json={"username": "loginuser", "password": "mypassword"},
+    )
+
+    resp = await client.post(
+        "/api/auth/login/account",
+        json={"username": "loginuser", "password": "wrongpassword"},
+    )
+    assert resp.status_code == 400
+    assert "用户名或密码错误" in resp.json()["detail"]
+
+
+@pytest.mark.asyncio
+async def test_account_login_nonexistent_user(client):
+    resp = await client.post(
+        "/api/auth/login/account",
+        json={"username": "nobody", "password": "whatever"},
+    )
+    assert resp.status_code == 400
+    assert "用户名或密码错误" in resp.json()["detail"]
+
+
 # --- 错题 CRUD ---
 
 @pytest.mark.asyncio

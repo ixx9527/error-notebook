@@ -13,6 +13,7 @@ httpx
 pydantic
 python-dotenv
 PyJWT
+bcrypt
 pytest
 pytest-asyncio
 aiosqlite

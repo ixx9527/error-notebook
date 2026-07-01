@@ -10,7 +10,9 @@ class User(Base):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    openid: Mapped[str] = mapped_column(String(64), unique=True, nullable=False)
+    openid: Mapped[str | None] = mapped_column(String(64), unique=True, nullable=True)
+    username: Mapped[str | None] = mapped_column(String(64), unique=True, nullable=True)
+    password_hash: Mapped[str | None] = mapped_column(String(256), nullable=True)
     nickname: Mapped[str | None] = mapped_column(String(64))
     avatar_url: Mapped[str | None] = mapped_column(String(512))
     child_name: Mapped[str | None] = mapped_column(String(64))
