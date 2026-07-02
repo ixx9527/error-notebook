@@ -16,10 +16,13 @@ services:
     build: ./backend
     ports:
       - "8000:8000"
-    env_file: backend/.env
     environment:
-      # 容器内 DB 主名为 db，覆盖 .env 中的 localhost
       - DATABASE_URL=postgresql+asyncpg://user:password@db:5432/error_notebook
+      - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY}
+      - WX_APPID=${WX_APPID}
+      - WX_SECRET=${WX_SECRET}
+      - SERVERCHAN_DEFAULT_KEY=${SERVERCHAN_DEFAULT_KEY:-}
+      - WECOM_BOT_WEBHOOK=${WECOM_BOT_WEBHOOK:-}
     depends_on:
       - db
     restart: unless-stopped
