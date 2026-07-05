@@ -28,11 +28,7 @@
       <view class="section-title">编辑资料</view>
       <view class="field-group">
         <text class="field-label">昵称</text>
-        <input class="field-input" value="{{editData.nickname}}" bindinput="onEditInput" data-field="nickname" />
-      </view>
-      <view class="field-group">
-        <text class="field-label">Server酱 Key（微信推送）</text>
-        <input class="field-input" value="{{editData.serverchan_key}}" bindinput="onEditInput" data-field="serverchan_key" placeholder="选填" />
+        <input class="field-input" type="text" value="{{editData.nickname}}" bindinput="onEditInput" data-field="nickname" placeholder="输入昵称" />
       </view>
       <view class="btn-group">
         <view class="btn-secondary" bindtap="cancelEdit">取消</view>

@@ -51,18 +51,21 @@
 }
 
 .field-label {
-  font-size: 24rpx;
+  font-size: 26rpx;
   color: var(--text-tertiary);
-  margin-bottom: 8rpx;
+  margin-bottom: 12rpx;
   display: block;
+  line-height: 1.6;
 }
 
 .field-input {
   width: 100%;
+  min-height: 80rpx;
   padding: 20rpx;
   background: var(--bg-input);
   border-radius: 8rpx;
   font-size: 28rpx;
+  line-height: 1.6;
   box-sizing: border-box;
 }
 
