@@ -237,3 +237,8 @@
   font-size: 30rpx;
   font-weight: 600;
 }
+
+/* Custom TabBar 底部安全距离 */
+.container {
+  padding-bottom: 140rpx;
+}

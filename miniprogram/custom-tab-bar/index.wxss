@@ -1,0 +1,49 @@
+/* ========== Light Mode ========== */
+.tab-bar {
+  position: fixed;
+  bottom: 40rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 80rpx);
+  max-width: 600rpx;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20rpx);
+  border-radius: 60rpx;
+  padding: 20rpx 32rpx;
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+}
+
+.tab-bar-inner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tab-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16rpx 32rpx;
+  border-radius: 40rpx;
+  transition: all 0.3s ease;
+}
+
+.tab-item.active {
+  background: var(--bg-secondary);
+}
+
+.tab-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+/* ========== Dark Mode ========== */
+.tab-bar.dark {
+  background: rgba(30, 30, 46, 0.95);
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.4);
+}
+
+.tab-bar.dark .tab-item.active {
+  background: rgba(255, 255, 255, 0.1);
+}

@@ -257,3 +257,8 @@
   color: var(--color-primary);
   font-weight: 500;
 }
+
+/* Custom TabBar 底部安全距离 */
+.container {
+  padding-bottom: 140rpx;
+}

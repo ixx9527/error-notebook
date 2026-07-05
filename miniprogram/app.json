@@ -18,6 +18,7 @@
   },
   "darkmode": true,
   "tabBar": {
+    "custom": true,
     "color": "#B2BEC3",
     "selectedColor": "#6C5CE7",
     "backgroundColor": "#ffffff",
@@ -25,21 +26,15 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "assets/icons/home.png",
-        "selectedIconPath": "assets/icons/home-active.png"
+        "text": "首页"
       },
       {
         "pagePath": "pages/error-list/error-list",
-        "text": "错题",
-        "iconPath": "assets/icons/book.png",
-        "selectedIconPath": "assets/icons/book-active.png"
+        "text": "错题"
       },
       {
         "pagePath": "pages/profile/profile",
-        "text": "我的",
-        "iconPath": "assets/icons/user.png",
-        "selectedIconPath": "assets/icons/user-active.png"
+        "text": "我的"
       }
     ]
   },

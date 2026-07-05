@@ -77,3 +77,8 @@
   font-size: 24rpx;
   color: var(--text-hint);
 }
+
+/* Custom TabBar 底部安全距离 */
+.container {
+  padding-bottom: 140rpx;
+}
