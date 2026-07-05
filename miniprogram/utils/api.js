@@ -1,4 +1,6 @@
-const BASE_URL = 'http://localhost:8000'
+let localConfig = {}
+try { localConfig = require('../config.local') } catch (e) {}
+const BASE_URL = localConfig.BASE_URL || 'http://localhost:8000'
 
 const { getToken } = require('./auth')
 
