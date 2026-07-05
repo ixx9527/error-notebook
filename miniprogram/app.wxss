@@ -1,25 +1,115 @@
+/* ========== iconfont ========== */
+@font-face {
+  font-family: "nbicon";
+  src: url("/assets/fonts/iconfont.ttf") format("truetype");
+}
+
+.iconfont {
+  font-family: "nbicon" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+.icon-camera::before     { content: "\E001"; }
+.icon-book::before       { content: "\E002"; }
+.icon-chart::before      { content: "\E003"; }
+.icon-ai::before         { content: "\E004"; }
+.icon-calendar::before   { content: "\E005"; }
+.icon-user::before       { content: "\E006"; }
+.icon-pdf::before        { content: "\E007"; }
+.icon-star::before       { content: "\E008"; }
+.icon-check::before      { content: "\E009"; }
+.icon-party::before      { content: "\E00A"; }
+.icon-search::before     { content: "\E00B"; }
+.icon-bell::before       { content: "\E00C"; }
+.icon-edit::before       { content: "\E00D"; }
+.icon-delete::before     { content: "\E00E"; }
+.icon-add::before        { content: "\E00F"; }
+.icon-arrow-right::before { content: "\E010"; }
+
+/* ========== CSS Variables — Light Mode ========== */
 page {
-  background-color: #f5f5f5;
+  --color-primary: #6C5CE7;
+  --color-primary-light: #A29BFE;
+  --color-primary-bg: #EEEAFF;
+  --color-primary-dark: #5A4BD1;
+
+  --bg-page: #F6F6FF;
+  --bg-card: #FFFFFF;
+  --bg-input: #F0F0FA;
+  --bg-secondary: #F0F0FA;
+
+  --text-primary: #2D3436;
+  --text-secondary: #636E72;
+  --text-tertiary: #B2BEC3;
+  --text-hint: #CCC;
+
+  --color-success: #00B894;
+  --color-error: #FF6B6B;
+  --color-warning: #FDCB6E;
+
+  --border-color: #E8E8F0;
+  --shadow-color: rgba(108, 92, 231, 0.06);
+
+  --subject-math: #6C5CE7;
+  --subject-chinese: #00B894;
+  --subject-english: #FDCB6E;
+  --subject-other: #B2BEC3;
+
+  background-color: var(--bg-page);
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
   font-size: 28rpx;
-  color: #333;
+  color: var(--text-primary);
   box-sizing: border-box;
 }
 
+/* ========== CSS Variables — Dark Mode ========== */
+@media (prefers-color-scheme: dark) {
+  page {
+    --color-primary: #A29BFE;
+    --color-primary-light: #6C5CE7;
+    --color-primary-bg: #2A2640;
+    --color-primary-dark: #C8C3FF;
+
+    --bg-page: #121220;
+    --bg-card: #1E1E2E;
+    --bg-input: #2A2A3C;
+    --bg-secondary: #2A2A3C;
+
+    --text-primary: #E8E8F0;
+    --text-secondary: #A0A0B8;
+    --text-tertiary: #5A5A72;
+    --text-hint: #44445A;
+
+    --color-success: #55EFC4;
+    --color-error: #FF7675;
+    --color-warning: #FFEAA7;
+
+    --border-color: #2A2A3C;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+
+    --subject-math: #A29BFE;
+    --subject-chinese: #55EFC4;
+    --subject-english: #FFEAA7;
+    --subject-other: #5A5A72;
+  }
+}
+
+/* ========== Global Components ========== */
 .container {
   padding: 24rpx;
 }
 
 .card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 16rpx;
   padding: 24rpx;
   margin-bottom: 20rpx;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2rpx 12rpx var(--shadow-color);
 }
 
 .btn-primary {
-  background: #4A90D9;
+  background: var(--color-primary);
   color: #fff;
   border-radius: 12rpx;
   padding: 20rpx 0;
@@ -33,8 +123,8 @@ page {
 }
 
 .btn-secondary {
-  background: #f0f0f0;
-  color: #666;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
   border-radius: 12rpx;
   padding: 20rpx 0;
   text-align: center;
@@ -44,21 +134,21 @@ page {
 .section-title {
   font-size: 32rpx;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 20rpx;
 }
 
 .empty-tip {
   text-align: center;
-  color: #999;
+  color: var(--text-tertiary);
   padding: 80rpx 0;
   font-size: 28rpx;
 }
 
 .tag {
   display: inline-block;
-  background: #EEF3FA;
-  color: #4A90D9;
+  background: var(--color-primary-bg);
+  color: var(--color-primary);
   border-radius: 8rpx;
   padding: 4rpx 16rpx;
   font-size: 22rpx;
@@ -74,13 +164,33 @@ page {
   color: #fff;
 }
 
-.subject-math { background: #4A90D9; }
-.subject-chinese { background: #E67E22; }
-.subject-english { background: #27AE60; }
-.subject-other { background: #95A5A6; }
+.subject-math { background: var(--subject-math); }
+.subject-chinese { background: var(--subject-chinese); }
+.subject-english { background: var(--subject-english); }
+.subject-other { background: var(--subject-other); }
 
 .divider {
   height: 1rpx;
-  background: #eee;
+  background: var(--border-color);
   margin: 20rpx 0;
+}
+
+/* ========== Icon Utilities ========== */
+.icon-lg {
+  font-size: 80rpx;
+  color: var(--color-primary);
+}
+
+.icon-md {
+  font-size: 48rpx;
+  color: var(--color-primary);
+}
+
+.icon-sm {
+  font-size: 32rpx;
+  color: var(--color-primary);
+}
+
+.icon-muted {
+  color: var(--text-tertiary);
 }

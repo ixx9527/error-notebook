@@ -8,9 +8,9 @@
   align-items: center;
   gap: 20rpx;
   padding: 80rpx 40rpx;
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 16rpx;
-  border: 2rpx dashed #ccc;
+  border: 2rpx dashed var(--text-hint);
 }
 
 .choose-icon {
@@ -19,12 +19,12 @@
 
 .choose-text {
   font-size: 32rpx;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .choose-hint {
   font-size: 24rpx;
-  color: #999;
+  color: var(--text-tertiary);
 }
 
 .preview-image {
@@ -56,7 +56,7 @@
 
 .field-label {
   font-size: 24rpx;
-  color: #999;
+  color: var(--text-tertiary);
   margin-bottom: 8rpx;
   display: block;
 }
@@ -64,7 +64,7 @@
 .field-input {
   width: 100%;
   padding: 16rpx;
-  background: #f8f8f8;
+  background: var(--bg-input);
   border-radius: 8rpx;
   font-size: 28rpx;
   box-sizing: border-box;

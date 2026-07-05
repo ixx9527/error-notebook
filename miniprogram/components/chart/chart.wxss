@@ -6,7 +6,7 @@
 
 .chart-title {
   font-size: 24rpx;
-  color: #666;
+  color: var(--text-secondary);
   margin-bottom: 12rpx;
 }
 

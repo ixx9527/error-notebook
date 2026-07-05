@@ -30,7 +30,7 @@
 
   <!-- 空状态 -->
   <view class="empty-tip" wx:if="{{!loading && items.length === 0}}">
-    暂无错题，去拍一张吧 📷
+    暂无错题，去拍一张吧
   </view>
 
   <!-- 加载更多 -->

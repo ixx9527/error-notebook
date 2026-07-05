@@ -7,18 +7,18 @@
 
 .detail-date {
   font-size: 24rpx;
-  color: #bbb;
+  color: var(--text-hint);
 }
 
 .detail-topic {
   font-size: 28rpx;
-  color: #4A90D9;
+  color: var(--color-primary);
 }
 
 .detail-text {
   font-size: 28rpx;
   line-height: 1.8;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .detail-text.analysis {
@@ -27,7 +27,7 @@
   padding: 16rpx 20rpx;
   border-radius: 0 8rpx 8rpx 0;
   margin-top: 12rpx;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .answer-row {
@@ -44,7 +44,7 @@
 
 .answer-label {
   font-size: 24rpx;
-  color: #999;
+  color: var(--text-tertiary);
 }
 
 .answer-value {
@@ -53,17 +53,17 @@
 }
 
 .answer-value.wrong {
-  color: #e74c3c;
+  color: var(--color-error);
 }
 
 .answer-value.right {
-  color: #27ae60;
+  color: var(--color-success);
 }
 
 .error-type-badge {
   display: inline-block;
   background: #FDECEA;
-  color: #e74c3c;
+  color: var(--color-error);
   padding: 6rpx 20rpx;
   border-radius: 8rpx;
   font-size: 24rpx;
@@ -80,7 +80,7 @@
 
 .field-label {
   font-size: 24rpx;
-  color: #999;
+  color: var(--text-tertiary);
   margin-bottom: 8rpx;
   display: block;
 }
@@ -88,7 +88,7 @@
 .field-input {
   width: 100%;
   padding: 16rpx;
-  background: #f8f8f8;
+  background: var(--bg-input);
   border-radius: 8rpx;
   font-size: 28rpx;
   box-sizing: border-box;

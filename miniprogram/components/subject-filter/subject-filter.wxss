@@ -8,11 +8,11 @@
   padding: 10rpx 28rpx;
   border-radius: 24rpx;
   font-size: 26rpx;
-  color: #666;
-  background: #f0f0f0;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
 }
 
 .filter-item.active {
-  background: #4A90D9;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--bg-card);
 }

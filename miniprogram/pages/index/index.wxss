@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(135deg, #4A90D9, #357ABD);
-  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: var(--bg-card);
 }
 
 .review-banner-left {
@@ -54,13 +54,13 @@
   align-items: center;
   justify-content: center;
   font-size: 44rpx;
-  background: #fff;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+  background: var(--bg-card);
+  box-shadow: 0 2rpx 12rpx var(--shadow-color);
 }
 
 .action-text {
   font-size: 24rpx;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .stats-row {
@@ -78,12 +78,12 @@
 .stat-num {
   font-size: 40rpx;
   font-weight: 600;
-  color: #4A90D9;
+  color: var(--color-primary);
 }
 
 .stat-label {
   font-size: 22rpx;
-  color: #999;
+  color: var(--text-tertiary);
 }
 
 .subject-bar-item {
@@ -95,13 +95,13 @@
 .bar-label {
   width: 80rpx;
   font-size: 24rpx;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .bar-track {
   flex: 1;
   height: 16rpx;
-  background: #f0f0f0;
+  background: var(--bg-secondary);
   border-radius: 8rpx;
   margin: 0 16rpx;
   overflow: hidden;
@@ -109,14 +109,14 @@
 
 .bar-fill {
   height: 100%;
-  background: #4A90D9;
+  background: var(--color-primary);
   border-radius: 8rpx;
   transition: width 0.3s;
 }
 
 .bar-count {
   font-size: 22rpx;
-  color: #999;
+  color: var(--text-tertiary);
   width: 60rpx;
   text-align: right;
 }
@@ -136,7 +136,7 @@
 .today-topic {
   flex: 1;
   font-size: 26rpx;
-  color: #333;
+  color: var(--text-primary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -144,7 +144,7 @@
 
 .today-round {
   font-size: 22rpx;
-  color: #999;
+  color: var(--text-tertiary);
 }
 
 /* 游客视图 */
@@ -163,21 +163,21 @@
 .guest-title {
   font-size: 44rpx;
   font-weight: 700;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 12rpx;
 }
 
 .guest-subtitle {
   font-size: 26rpx;
-  color: #999;
+  color: var(--text-tertiary);
 }
 
 .guest-features {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 16rpx;
   padding: 32rpx;
   margin-bottom: 40rpx;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2rpx 12rpx var(--shadow-color);
 }
 
 .feature-item {
@@ -207,12 +207,12 @@
 .feature-name {
   font-size: 28rpx;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .feature-desc {
   font-size: 24rpx;
-  color: #999;
+  color: var(--text-tertiary);
 }
 
 .guest-action {
@@ -228,14 +228,14 @@
   padding: 24rpx 0;
   font-size: 32rpx;
   font-weight: 600;
-  background: #4A90D9;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--bg-card);
   border-radius: 48rpx;
 }
 
 .guest-hint {
   font-size: 24rpx;
-  color: #999;
+  color: var(--text-tertiary);
   margin-top: 16rpx;
 }
 
@@ -249,11 +249,11 @@
 
 .guest-login-text {
   font-size: 26rpx;
-  color: #999;
+  color: var(--text-tertiary);
 }
 
 .guest-login-link {
   font-size: 26rpx;
-  color: #4A90D9;
+  color: var(--color-primary);
   font-weight: 500;
 }

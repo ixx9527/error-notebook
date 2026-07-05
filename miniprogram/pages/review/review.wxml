@@ -1,7 +1,7 @@
 <view class="container">
   <!-- 完成状态 -->
   <view wx:if="{{completed}}" class="complete-card card">
-    <text class="complete-icon">🎉</text>
+    <text class="complete-icon iconfont icon-lg icon-party"></text>
     <text class="complete-title">今日复习完成！</text>
     <text class="complete-desc">共复习 {{totalCompleted}} 道错题</text>
     <view class="btn-primary" bindtap="goHome" style="margin-top: 40rpx;">返回首页</view>
@@ -52,7 +52,7 @@
             <view class="rating-stars">
               <view class="star" wx:for="{{5}}" wx:for-item="star" wx:key="*this"
                 bindtap="rateMastery" data-level="{{star + 1}}">
-                {{star + 1}}⭐
+                {{star + 1}}
               </view>
             </view>
             <text class="rating-hint">1=完全不会 5=完全掌握</text>

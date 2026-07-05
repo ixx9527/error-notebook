@@ -2,7 +2,7 @@
   <!-- 游客视图 -->
   <block wx:if="{{isGuest}}">
     <view class="guest-profile">
-      <view class="guest-avatar">👤</view>
+      <view class="guest-avatar"><text class="iconfont icon-lg icon-user icon-muted"></text></view>
       <text class="guest-welcome">欢迎来到错题本</text>
       <text class="guest-desc">登录后可保存错题、管理孩子信息、导出数据</text>
       <view class="btn-primary guest-login-btn" bindtap="goLogin">登录 / 注册</view>
@@ -88,12 +88,12 @@
     <!-- 功能入口 -->
     <view class="card menu-card" wx:if="{{!editing}}">
       <view class="menu-item" bindtap="goStats">
-        <text class="menu-icon">📊</text>
+        <text class="menu-icon"><text class="iconfont icon-md icon-chart"></text></text>
         <text class="menu-text">统计分析</text>
         <text class="menu-arrow">›</text>
       </view>
       <view class="menu-item" bindtap="goExport">
-        <text class="menu-icon">📄</text>
+        <text class="menu-icon"><text class="iconfont icon-md icon-pdf"></text></text>
         <text class="menu-text">导出 PDF</text>
         <text class="menu-arrow">›</text>
       </view>

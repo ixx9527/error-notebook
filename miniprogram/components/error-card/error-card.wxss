@@ -1,9 +1,9 @@
 .error-card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 16rpx;
   padding: 24rpx;
   margin-bottom: 20rpx;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2rpx 12rpx var(--shadow-color);
 }
 
 .card-header {
@@ -15,18 +15,18 @@
 
 .card-time {
   font-size: 22rpx;
-  color: #bbb;
+  color: var(--text-hint);
 }
 
 .card-topic {
   font-size: 26rpx;
-  color: #4A90D9;
+  color: var(--color-primary);
   margin-bottom: 8rpx;
 }
 
 .card-question {
   font-size: 28rpx;
-  color: #333;
+  color: var(--text-primary);
   line-height: 1.6;
   display: -webkit-box;
   -webkit-line-clamp: 3;

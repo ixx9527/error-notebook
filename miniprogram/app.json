@@ -10,15 +10,16 @@
     "pages/profile/profile"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#4A90D9",
+    "navigationBarBackgroundColor": "#6C5CE7",
     "navigationBarTitleText": "错题本",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#F5F5F5",
+    "backgroundColor": "#F6F6FF",
     "backgroundTextStyle": "dark"
   },
+  "darkmode": true,
   "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#4A90D9",
+    "color": "#B2BEC3",
+    "selectedColor": "#6C5CE7",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "list": [

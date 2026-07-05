@@ -1,6 +1,6 @@
 .tab-bar {
   display: flex;
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12rpx;
   margin-bottom: 20rpx;
   overflow: hidden;
@@ -11,13 +11,13 @@
   text-align: center;
   padding: 20rpx;
   font-size: 28rpx;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .tab-item.active {
-  color: #4A90D9;
+  color: var(--color-primary);
   font-weight: 600;
-  border-bottom: 4rpx solid #4A90D9;
+  border-bottom: 4rpx solid var(--color-primary);
 }
 
 .field-group {
@@ -26,15 +26,15 @@
 
 .field-label {
   font-size: 24rpx;
-  color: #999;
+  color: var(--text-tertiary);
   margin-bottom: 8rpx;
   display: block;
 }
 
 .picker-value {
   padding: 20rpx;
-  background: #f8f8f8;
+  background: var(--bg-input);
   border-radius: 8rpx;
   font-size: 28rpx;
-  color: #333;
+  color: var(--text-primary);
 }

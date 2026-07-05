@@ -8,7 +8,7 @@
 
 .progress-fill {
   height: 100%;
-  background: #4A90D9;
+  background: var(--color-primary);
   border-radius: 4rpx;
   transition: width 0.3s;
 }
@@ -16,7 +16,7 @@
 .progress-text {
   text-align: center;
   font-size: 24rpx;
-  color: #999;
+  color: var(--text-tertiary);
   margin-bottom: 20rpx;
 }
 
@@ -33,19 +33,19 @@
 
 .review-round {
   font-size: 24rpx;
-  color: #999;
+  color: var(--text-tertiary);
 }
 
 .review-topic {
   font-size: 26rpx;
-  color: #4A90D9;
+  color: var(--color-primary);
   margin-bottom: 16rpx;
 }
 
 .review-question {
   font-size: 30rpx;
   line-height: 1.8;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .answer-section {
@@ -63,7 +63,7 @@
 
 .answer-label {
   font-size: 24rpx;
-  color: #999;
+  color: var(--text-tertiary);
   display: block;
   margin-bottom: 8rpx;
 }
@@ -71,11 +71,11 @@
 .answer-value {
   font-size: 32rpx;
   font-weight: 600;
-  color: #e74c3c;
+  color: var(--color-error);
 }
 
 .answer-value.correct {
-  color: #27ae60;
+  color: var(--color-success);
 }
 
 .review-actions {
@@ -91,7 +91,7 @@
 
 .rating-title {
   font-size: 28rpx;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .rating-stars {
@@ -102,17 +102,17 @@
 .star {
   font-size: 36rpx;
   padding: 12rpx 16rpx;
-  background: #f8f8f8;
+  background: var(--bg-input);
   border-radius: 12rpx;
 }
 
 .star:active {
-  background: #FFD700;
+  background: var(--color-warning);
 }
 
 .rating-hint {
   font-size: 22rpx;
-  color: #bbb;
+  color: var(--text-hint);
 }
 
 .complete-card {
@@ -130,11 +130,11 @@
 .complete-title {
   font-size: 36rpx;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 12rpx;
 }
 
 .complete-desc {
   font-size: 28rpx;
-  color: #999;
+  color: var(--text-tertiary);
 }
