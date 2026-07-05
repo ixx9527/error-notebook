@@ -15,6 +15,10 @@ App({
     }
   },
 
+  isGuest() {
+    return !this.globalData.token
+  },
+
   async ensureLogin() {
     if (this.globalData.token) return true
 

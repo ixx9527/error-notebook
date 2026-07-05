@@ -83,4 +83,35 @@ function uploadFile(filePath, formData = {}) {
   })
 }
 
-module.exports = { request, uploadFile, BASE_URL }
+function guestUpload(filePath) {
+  return new Promise((resolve, reject) => {
+    wx.showLoading({ title: '识别中...', mask: true })
+
+    wx.uploadFile({
+      url: `${BASE_URL}/api/guest/demo-upload`,
+      filePath,
+      name: 'image',
+      success(res) {
+        wx.hideLoading()
+        if (res.statusCode === 200) {
+          const data = JSON.parse(res.data)
+          resolve(data)
+        } else if (res.statusCode === 429) {
+          wx.showToast({ title: '体验次数已达上限，请注册后使用', icon: 'none' })
+          reject(new Error('体验次数已达上限'))
+        } else {
+          const msg = JSON.parse(res.data).detail || '上传失败'
+          wx.showToast({ title: msg, icon: 'none' })
+          reject(new Error(msg))
+        }
+      },
+      fail(err) {
+        wx.hideLoading()
+        wx.showToast({ title: '网络错误', icon: 'none' })
+        reject(err)
+      },
+    })
+  })
+}
+
+module.exports = { request, uploadFile, guestUpload, BASE_URL }

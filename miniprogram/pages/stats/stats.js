@@ -1,4 +1,5 @@
 const { request } = require('../../utils/api')
+const { showLoginDialog } = require('../../utils/auth')
 
 Page({
   data: {
@@ -10,6 +11,13 @@ Page({
   },
 
   onShow() {
+    const app = getApp()
+    if (app.isGuest()) {
+      showLoginDialog().then((ok) => {
+        if (!ok) wx.navigateBack()
+      })
+      return
+    }
     this.loadAll()
   },
 

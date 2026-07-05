@@ -1,5 +1,6 @@
 const { request, BASE_URL } = require('../../utils/api')
 const { getToken } = require('../../utils/auth')
+const { showLoginDialog } = require('../../utils/auth')
 
 Page({
   data: {
@@ -16,6 +17,13 @@ Page({
   },
 
   onLoad() {
+    const app = getApp()
+    if (app.isGuest()) {
+      showLoginDialog().then((ok) => {
+        if (!ok) wx.navigateBack()
+      })
+      return
+    }
     const now = new Date()
     this.setData({ year: now.getFullYear(), month: now.getMonth() + 1 })
     this.loadChildren()

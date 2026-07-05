@@ -30,3 +30,16 @@ async def get_current_user_id(
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="登录已过期，请重新登录")
     except Exception:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="登录已过期")
+
+
+async def get_optional_user_id(
+    credentials: HTTPAuthorizationCredentials = Depends(security),
+) -> int | None:
+    """从 JWT token 中提取 user_id，无 token 时返回 None（游客模式）"""
+    if not credentials:
+        return None
+    try:
+        payload = jwt.decode(credentials.credentials, JWT_SECRET, algorithms=[JWT_ALGORITHM])
+        return payload["user_id"]
+    except Exception:
+        return None

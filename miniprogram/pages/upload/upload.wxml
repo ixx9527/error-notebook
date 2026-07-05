@@ -71,7 +71,9 @@
 
     <view class="btn-group">
       <view class="btn-secondary" bindtap="goBack">返回修改</view>
-      <view class="btn-primary" bindtap="confirmSave">确认保存</view>
+      <view class="btn-primary" bindtap="confirmSave">
+        {{isGuest ? '登录并保存' : '确认保存'}}
+      </view>
     </view>
   </view>
 

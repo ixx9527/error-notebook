@@ -1,91 +1,104 @@
 <view class="container">
-  <!-- 用户信息卡片 -->
-  <view class="card user-card" wx:if="{{!editing}}">
-    <view class="avatar-area">
-      <view class="avatar">{{profile.child_name[0] || '?'}}</view>
-      <view class="user-info">
-        <text class="user-name">{{profile.nickname || '家长'}}</text>
-        <text class="user-grade">{{profile.child_name || '未设置'}}</text>
-      </view>
+  <!-- 游客视图 -->
+  <block wx:if="{{isGuest}}">
+    <view class="guest-profile">
+      <view class="guest-avatar">👤</view>
+      <text class="guest-welcome">欢迎来到错题本</text>
+      <text class="guest-desc">登录后可保存错题、管理孩子信息、导出数据</text>
+      <view class="btn-primary guest-login-btn" bindtap="goLogin">登录 / 注册</view>
     </view>
-    <view class="edit-btn" bindtap="startEdit">编辑</view>
-  </view>
+  </block>
 
-  <!-- 编辑模式 -->
-  <view class="card" wx:if="{{editing}}">
-    <view class="section-title">编辑资料</view>
-    <view class="field-group">
-      <text class="field-label">昵称</text>
-      <input class="field-input" value="{{editData.nickname}}" bindinput="onEditInput" data-field="nickname" />
-    </view>
-    <view class="field-group">
-      <text class="field-label">Server酱 Key（微信推送）</text>
-      <input class="field-input" value="{{editData.serverchan_key}}" bindinput="onEditInput" data-field="serverchan_key" placeholder="选填" />
-    </view>
-    <view class="btn-group">
-      <view class="btn-secondary" bindtap="cancelEdit">取消</view>
-      <view class="btn-primary" bindtap="saveEdit">保存</view>
-    </view>
-  </view>
-
-  <!-- 孩子管理 -->
-  <view class="card" wx:if="{{!editing}}">
-    <view class="section-header">
-      <text class="section-title" style="margin-bottom:0">孩子管理</text>
-      <text class="add-btn" bindtap="showAddChild">+ 添加</text>
-    </view>
-
-    <view class="child-list" wx:if="{{children.length > 0}}">
-      <view class="child-item" wx:for="{{children}}" wx:key="id">
-        <view class="child-info">
-          <text class="child-name">{{item.name}}</text>
-          <text class="child-grade">{{item.grade || '未设置年级'}}</text>
-        </view>
-        <view class="child-actions">
-          <text class="child-action" bindtap="showEditChild" data-id="{{item.id}}">编辑</text>
-          <text class="child-action delete" bindtap="deleteChild" data-id="{{item.id}}">删除</text>
+  <!-- 用户视图 -->
+  <block wx:else>
+    <!-- 用户信息卡片 -->
+    <view class="card user-card" wx:if="{{!editing}}">
+      <view class="avatar-area">
+        <view class="avatar">{{profile.child_name[0] || '?'}}</view>
+        <view class="user-info">
+          <text class="user-name">{{profile.nickname || '家长'}}</text>
+          <text class="user-grade">{{profile.child_name || '未设置'}}</text>
         </view>
       </view>
+      <view class="edit-btn" bindtap="startEdit">编辑</view>
     </view>
-    <view class="empty-tip" wx:else style="padding: 30rpx 0;">
-      还没有添加孩子信息
-    </view>
-  </view>
 
-  <!-- 孩子编辑弹窗 -->
-  <view class="modal-mask" wx:if="{{showChildForm}}" bindtap="hideChildForm">
-    <view class="modal-content" catchtap="">
-      <text class="section-title">{{editingChildId ? '编辑孩子' : '添加孩子'}}</text>
+    <!-- 编辑模式 -->
+    <view class="card" wx:if="{{editing}}">
+      <view class="section-title">编辑资料</view>
       <view class="field-group">
-        <text class="field-label">姓名</text>
-        <input class="field-input" value="{{childEditData.name}}" bindinput="onChildInput" data-field="name" placeholder="输入孩子姓名" />
+        <text class="field-label">昵称</text>
+        <input class="field-input" value="{{editData.nickname}}" bindinput="onEditInput" data-field="nickname" />
       </view>
       <view class="field-group">
-        <text class="field-label">年级</text>
-        <picker mode="selector" range="{{gradeOptions}}" value="{{childEditData.grade}}" bindinput="onChildInput" data-field="grade">
-          <view class="field-input">{{childEditData.grade || '选择年级'}} ▾</view>
-        </picker>
+        <text class="field-label">Server酱 Key（微信推送）</text>
+        <input class="field-input" value="{{editData.serverchan_key}}" bindinput="onEditInput" data-field="serverchan_key" placeholder="选填" />
       </view>
       <view class="btn-group">
-        <view class="btn-secondary" bindtap="hideChildForm">取消</view>
-        <view class="btn-primary" bindtap="saveChild">保存</view>
+        <view class="btn-secondary" bindtap="cancelEdit">取消</view>
+        <view class="btn-primary" bindtap="saveEdit">保存</view>
       </view>
     </view>
-  </view>
 
-  <!-- 功能入口 -->
-  <view class="card menu-card" wx:if="{{!editing}}">
-    <view class="menu-item" bindtap="goStats">
-      <text class="menu-icon">📊</text>
-      <text class="menu-text">统计分析</text>
-      <text class="menu-arrow">›</text>
-    </view>
-    <view class="menu-item" bindtap="goExport">
-      <text class="menu-icon">📄</text>
-      <text class="menu-text">导出 PDF</text>
-      <text class="menu-arrow">›</text>
-    </view>
-  </view>
+    <!-- 孩子管理 -->
+    <view class="card" wx:if="{{!editing}}">
+      <view class="section-header">
+        <text class="section-title" style="margin-bottom:0">孩子管理</text>
+        <text class="add-btn" bindtap="showAddChild">+ 添加</text>
+      </view>
 
-  <view class="logout-btn" wx:if="{{!editing && profile.id}}" bindtap="logout">退出登录</view>
+      <view class="child-list" wx:if="{{children.length > 0}}">
+        <view class="child-item" wx:for="{{children}}" wx:key="id">
+          <view class="child-info">
+            <text class="child-name">{{item.name}}</text>
+            <text class="child-grade">{{item.grade || '未设置年级'}}</text>
+          </view>
+          <view class="child-actions">
+            <text class="child-action" bindtap="showEditChild" data-id="{{item.id}}">编辑</text>
+            <text class="child-action delete" bindtap="deleteChild" data-id="{{item.id}}">删除</text>
+          </view>
+        </view>
+      </view>
+      <view class="empty-tip" wx:else style="padding: 30rpx 0;">
+        还没有添加孩子信息
+      </view>
+    </view>
+
+    <!-- 孩子编辑弹窗 -->
+    <view class="modal-mask" wx:if="{{showChildForm}}" bindtap="hideChildForm">
+      <view class="modal-content" catchtap="">
+        <text class="section-title">{{editingChildId ? '编辑孩子' : '添加孩子'}}</text>
+        <view class="field-group">
+          <text class="field-label">姓名</text>
+          <input class="field-input" value="{{childEditData.name}}" bindinput="onChildInput" data-field="name" placeholder="输入孩子姓名" />
+        </view>
+        <view class="field-group">
+          <text class="field-label">年级</text>
+          <picker mode="selector" range="{{gradeOptions}}" value="{{childEditData.grade}}" bindinput="onChildInput" data-field="grade">
+            <view class="field-input">{{childEditData.grade || '选择年级'}} ▾</view>
+          </picker>
+        </view>
+        <view class="btn-group">
+          <view class="btn-secondary" bindtap="hideChildForm">取消</view>
+          <view class="btn-primary" bindtap="saveChild">保存</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 功能入口 -->
+    <view class="card menu-card" wx:if="{{!editing}}">
+      <view class="menu-item" bindtap="goStats">
+        <text class="menu-icon">📊</text>
+        <text class="menu-text">统计分析</text>
+        <text class="menu-arrow">›</text>
+      </view>
+      <view class="menu-item" bindtap="goExport">
+        <text class="menu-icon">📄</text>
+        <text class="menu-text">导出 PDF</text>
+        <text class="menu-arrow">›</text>
+      </view>
+    </view>
+
+    <view class="logout-btn" wx:if="{{!editing && profile.id}}" bindtap="logout">退出登录</view>
+  </block>
 </view>

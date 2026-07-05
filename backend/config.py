@@ -27,6 +27,9 @@ UPLOAD_DIR: str = os.getenv("UPLOAD_DIR", "./uploads")
 MAX_IMAGE_DIMENSION: int = 1920
 MAX_IMAGE_SIZE_BYTES: int = 1 * 1024 * 1024  # 1MB
 
+# 游客体验
+GUEST_DEMO_LIMIT_PER_HOUR: int = int(os.getenv("GUEST_DEMO_LIMIT_PER_HOUR", "5"))
+
 # OSS（可选）
 OSS_ACCESS_KEY_ID: str = os.getenv("OSS_ACCESS_KEY_ID", "")
 OSS_ACCESS_KEY_SECRET: str = os.getenv("OSS_ACCESS_KEY_SECRET", "")

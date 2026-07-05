@@ -1,13 +1,20 @@
-const { uploadFile, request } = require('../../utils/api')
+const { uploadFile, request, guestUpload } = require('../../utils/api')
 const { BASE_URL, getToken } = require('../../utils/api')
+const { showLoginDialog } = require('../../utils/auth')
 
 Page({
   data: {
+    isGuest: false,
     imagePath: '',
     recognizing: false,
     recognized: false,
     results: [],
     currentStep: 'choose',
+  },
+
+  onLoad() {
+    const app = getApp()
+    this.setData({ isGuest: app.isGuest() })
   },
 
   chooseImage() {
@@ -39,12 +46,26 @@ Page({
     this.setData({ recognizing: true })
 
     try {
-      const taskId = await this.uploadAsync()
-      await this.pollResult(taskId)
+      if (this.data.isGuest) {
+        await this.guestRecognize()
+      } else {
+        const taskId = await this.uploadAsync()
+        await this.pollResult(taskId)
+      }
     } catch (e) {
       this.setData({ recognizing: false })
       wx.showToast({ title: '识别失败，请重试', icon: 'none' })
     }
+  },
+
+  async guestRecognize() {
+    const res = await guestUpload(this.data.imagePath)
+    this.setData({
+      recognizing: false,
+      recognized: true,
+      results: res.data || [],
+      currentStep: 'result',
+    })
   },
 
   uploadAsync() {
@@ -142,7 +163,17 @@ Page({
     this.setData({ [`results[${idx}].${field}`]: e.detail.value })
   },
 
-  confirmSave() {
+  async confirmSave() {
+    if (this.data.isGuest) {
+      const loggedIn = await showLoginDialog()
+      if (loggedIn) {
+        this.setData({ isGuest: false })
+        wx.showToast({ title: '登录成功，请重新拍照保存', icon: 'none' })
+        this.retake()
+      }
+      return
+    }
+
     wx.showToast({ title: '已保存', icon: 'success' })
     setTimeout(() => wx.navigateBack(), 1000)
   },

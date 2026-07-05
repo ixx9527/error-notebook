@@ -36,7 +36,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-from api import auth, errors, review, export, stats, users, notify, children  # noqa: E402
+from api import auth, errors, review, export, stats, users, notify, children, guest  # noqa: E402
 
 app.include_router(auth.router, prefix="/api/auth", tags=["认证"])
 app.include_router(errors.router, prefix="/api/errors", tags=["错题管理"])
@@ -46,6 +46,7 @@ app.include_router(stats.router, prefix="/api/stats", tags=["统计"])
 app.include_router(users.router, prefix="/api/users", tags=["用户"])
 app.include_router(notify.router, prefix="/api/notify", tags=["消息通知"])
 app.include_router(children.router, prefix="/api/children", tags=["孩子管理"])
+app.include_router(guest.router, prefix="/api/guest", tags=["游客体验"])
 
 
 @app.get("/health")

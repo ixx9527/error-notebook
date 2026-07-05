@@ -1,8 +1,9 @@
 const { request } = require('../../utils/api')
-const { clearToken } = require('../../utils/auth')
+const { clearToken, showLoginDialog } = require('../../utils/auth')
 
 Page({
   data: {
+    isGuest: false,
     profile: {},
     children: [],
     editing: false,
@@ -14,8 +15,24 @@ Page({
   },
 
   onShow() {
-    this.loadProfile()
-    this.loadChildren()
+    const app = getApp()
+    const isGuest = app.isGuest()
+    this.setData({ isGuest })
+    if (!isGuest) {
+      this.loadProfile()
+      this.loadChildren()
+    }
+  },
+
+  goLogin() {
+    const app = getApp()
+    app.ensureLogin().then((ok) => {
+      if (ok) {
+        this.setData({ isGuest: false })
+        this.loadProfile()
+        this.loadChildren()
+      }
+    })
   },
 
   async loadProfile() {

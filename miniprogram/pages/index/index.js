@@ -3,6 +3,7 @@ const { formatDate, getSubjectClass } = require('../../utils/util')
 
 Page({
   data: {
+    isGuest: true,
     todayCount: 0,
     todayItems: [],
     stats: {},
@@ -10,7 +11,14 @@ Page({
   },
 
   onShow() {
-    this.loadData()
+    const app = getApp()
+    const isGuest = app.isGuest()
+    this.setData({ isGuest })
+    if (!isGuest) {
+      this.loadData()
+    } else {
+      this.setData({ loading: false })
+    }
   },
 
   async loadData() {
@@ -61,5 +69,15 @@ Page({
 
   goStats() {
     wx.navigateTo({ url: '/pages/stats/stats' })
+  },
+
+  goLogin() {
+    const app = getApp()
+    app.ensureLogin().then((ok) => {
+      if (ok) {
+        this.setData({ isGuest: false })
+        this.loadData()
+      }
+    })
   },
 })

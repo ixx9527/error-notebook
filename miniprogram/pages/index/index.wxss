@@ -146,3 +146,114 @@
   font-size: 22rpx;
   color: #999;
 }
+
+/* 游客视图 */
+.guest-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 0 40rpx;
+}
+
+.guest-logo {
+  font-size: 80rpx;
+  margin-bottom: 16rpx;
+}
+
+.guest-title {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.guest-subtitle {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.guest-features {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+  gap: 24rpx;
+}
+
+.feature-item:last-child {
+  border-bottom: none;
+}
+
+.feature-icon {
+  font-size: 44rpx;
+  width: 72rpx;
+  text-align: center;
+}
+
+.feature-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.feature-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.feature-desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.guest-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.guest-try-btn {
+  width: 400rpx;
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 32rpx;
+  font-weight: 600;
+  background: #4A90D9;
+  color: #fff;
+  border-radius: 48rpx;
+}
+
+.guest-hint {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 16rpx;
+}
+
+.guest-login-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rpx;
+  padding: 24rpx 0;
+}
+
+.guest-login-text {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.guest-login-link {
+  font-size: 26rpx;
+  color: #4A90D9;
+  font-weight: 500;
+}

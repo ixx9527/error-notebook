@@ -1,5 +1,6 @@
 const { request } = require('../../utils/api')
 const { getSubjectClass } = require('../../utils/util')
+const { showLoginDialog } = require('../../utils/auth')
 
 Page({
   data: {
@@ -12,6 +13,13 @@ Page({
   },
 
   onLoad() {
+    const app = getApp()
+    if (app.isGuest()) {
+      showLoginDialog().then((ok) => {
+        if (!ok) wx.navigateBack()
+      })
+      return
+    }
     this.loadTodayReview()
   },
 

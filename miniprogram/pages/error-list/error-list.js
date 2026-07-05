@@ -1,5 +1,6 @@
 const { request } = require('../../utils/api')
 const { getSubjectClass, timeAgo } = require('../../utils/util')
+const { showLoginDialog } = require('../../utils/auth')
 
 Page({
   data: {
@@ -15,6 +16,13 @@ Page({
   },
 
   onShow() {
+    const app = getApp()
+    if (app.isGuest()) {
+      showLoginDialog().then((ok) => {
+        if (!ok) wx.switchTab({ url: '/pages/index/index' })
+      })
+      return
+    }
     this.resetAndLoad()
   },
 
