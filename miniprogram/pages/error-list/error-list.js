@@ -17,6 +17,9 @@ Page({
 
   onShow() {
     const app = getApp()
+    if (typeof this.getTabBar === 'function') {
+      this.getTabBar().setData({ selected: 1, theme: app.getTheme() })
+    }
     if (app.isGuest()) {
       showLoginDialog().then((ok) => {
         if (!ok) wx.switchTab({ url: '/pages/index/index' })

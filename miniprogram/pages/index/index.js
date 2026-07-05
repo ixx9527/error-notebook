@@ -15,6 +15,9 @@ Page({
     const app = getApp()
     const isGuest = app.isGuest()
     this.setData({ isGuest, theme: app.getTheme() })
+    if (typeof this.getTabBar === 'function') {
+      this.getTabBar().setData({ selected: 0, theme: app.getTheme() })
+    }
     if (!isGuest) {
       this.loadData()
     } else {

@@ -35,11 +35,11 @@ Component({
       // 获取当前页面路径，设置选中状态
       const pages = getCurrentPages();
       const currentPage = pages[pages.length - 1];
-      const currentPath = '/' + currentPage.route;
-      
+      const currentPath = currentPage ? '/' + currentPage.route : '';
+
       const index = this.data.list.findIndex(item => item.pagePath === currentPath);
-      
-      this.setData({ 
+
+      this.setData({
         selected: index !== -1 ? index : 0,
         theme: theme
       });

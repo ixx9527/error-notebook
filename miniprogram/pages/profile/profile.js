@@ -18,6 +18,9 @@ Page({
     const app = getApp()
     const isGuest = app.isGuest()
     this.setData({ isGuest })
+    if (typeof this.getTabBar === 'function') {
+      this.getTabBar().setData({ selected: 2, theme: app.getTheme() })
+    }
     if (!isGuest) {
       this.loadProfile()
       this.loadChildren()
