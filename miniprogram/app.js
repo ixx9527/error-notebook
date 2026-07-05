@@ -5,6 +5,7 @@ App({
     token: null,
     userId: null,
     userInfo: null,
+    theme: 'light',
   },
 
   onLaunch() {
@@ -13,10 +14,18 @@ App({
       this.globalData.token = token
       this.globalData.userId = wx.getStorageSync('user_id')
     }
+    this.globalData.theme = wx.getSystemInfoSync().theme || 'light'
+    wx.onThemeChange((res) => {
+      this.globalData.theme = res.theme
+    })
   },
 
   isGuest() {
     return !this.globalData.token
+  },
+
+  getTheme() {
+    return this.globalData.theme
   },
 
   async ensureLogin() {

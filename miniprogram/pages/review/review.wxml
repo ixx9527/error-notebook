@@ -1,7 +1,7 @@
 <view class="container">
   <!-- 完成状态 -->
   <view wx:if="{{completed}}" class="complete-card card">
-    <text class="complete-icon iconfont icon-lg icon-party"></text>
+    <image class="complete-icon icon-lg" src="/assets/icons-svg/party_primary_80.svg" />
     <text class="complete-title">今日复习完成！</text>
     <text class="complete-desc">共复习 {{totalCompleted}} 道错题</text>
     <view class="btn-primary" bindtap="goHome" style="margin-top: 40rpx;">返回首页</view>

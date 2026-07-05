@@ -4,6 +4,7 @@ const { formatDate, getSubjectClass } = require('../../utils/util')
 Page({
   data: {
     isGuest: true,
+    theme: 'light',
     todayCount: 0,
     todayItems: [],
     stats: {},
@@ -13,7 +14,7 @@ Page({
   onShow() {
     const app = getApp()
     const isGuest = app.isGuest()
-    this.setData({ isGuest })
+    this.setData({ isGuest, theme: app.getTheme() })
     if (!isGuest) {
       this.loadData()
     } else {

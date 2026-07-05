@@ -2,35 +2,35 @@
   <!-- 游客视图 -->
   <block wx:if="{{isGuest}}">
     <view class="guest-hero">
-      <view class="guest-logo"><text class="iconfont icon-lg icon-book"></text></view>
+      <view class="guest-logo"><image class="icon-img icon-lg" src="/assets/icons-svg/logo_primary{{theme === 'dark' ? '_dark_80' : '_80'}}.svg" /></view>
       <text class="guest-title">智能错题本</text>
       <text class="guest-subtitle">拍照即录入，AI 自动识别，科学复习</text>
     </view>
 
     <view class="guest-features">
       <view class="feature-item">
-        <view class="feature-icon"><text class="iconfont icon-md icon-camera"></text></view>
+        <view class="feature-icon"><image class="icon-img icon-md" src="/assets/icons-svg/camera_primary{{theme === 'dark' ? '_dark_48' : '_48'}}.svg" /></view>
         <view class="feature-info">
           <text class="feature-name">拍照即录入</text>
           <text class="feature-desc">拍一张照片，自动整理错题</text>
         </view>
       </view>
       <view class="feature-item">
-        <view class="feature-icon"><text class="iconfont icon-md icon-ai"></text></view>
+        <view class="feature-icon"><image class="icon-img icon-md" src="/assets/icons-svg/ai_primary{{theme === 'dark' ? '_dark_48' : '_48'}}.svg" /></view>
         <view class="feature-info">
           <text class="feature-name">AI 智能识别</text>
           <text class="feature-desc">自动提取题目、答案和错因</text>
         </view>
       </view>
       <view class="feature-item">
-        <view class="feature-icon"><text class="iconfont icon-md icon-calendar"></text></view>
+        <view class="feature-icon"><image class="icon-img icon-md" src="/assets/icons-svg/calendar_primary{{theme === 'dark' ? '_dark_48' : '_48'}}.svg" /></view>
         <view class="feature-info">
           <text class="feature-name">科学复习</text>
           <text class="feature-desc">艾宾浩斯曲线，精准安排复习</text>
         </view>
       </view>
       <view class="feature-item">
-        <view class="feature-icon"><text class="iconfont icon-md icon-chart"></text></view>
+        <view class="feature-icon"><image class="icon-img icon-md" src="/assets/icons-svg/chart_primary{{theme === 'dark' ? '_dark_48' : '_48'}}.svg" /></view>
         <view class="feature-info">
           <text class="feature-name">数据驱动</text>
           <text class="feature-desc">查漏补缺，掌握学习进展</text>
@@ -58,7 +58,7 @@
         <text class="review-label">今日待复习</text>
       </view>
       <view class="review-banner-right">
-        <text class="review-go" wx:if="{{todayCount > 0}}">开始复习 <text class="iconfont icon-sm icon-arrow-right"></text></text>
+        <text class="review-go" wx:if="{{todayCount > 0}}">开始复习 <image class="icon-img icon-sm" src="/assets/icons-svg/arrow_primary{{theme === 'dark' ? '_dark_32' : '_32'}}.svg" /></text>
         <text class="review-go done" wx:else>今日已完成 ✓</text>
       </view>
     </view>
@@ -66,15 +66,15 @@
     <!-- 快捷入口 -->
     <view class="quick-actions">
       <view class="action-item" bindtap="goUpload">
-        <view class="action-icon camera"><text class="iconfont icon-md icon-camera"></text></view>
+        <view class="action-icon camera"><image class="icon-img icon-md" src="/assets/icons-svg/camera_primary{{theme === 'dark' ? '_dark_48' : '_48'}}.svg" /></view>
         <text class="action-text">拍照录入</text>
       </view>
       <view class="action-item" bindtap="goErrorList">
-        <view class="action-icon book"><text class="iconfont icon-md icon-book"></text></view>
+        <view class="action-icon book"><image class="icon-img icon-md" src="/assets/icons-svg/book_primary{{theme === 'dark' ? '_dark_48' : '_48'}}.svg" /></view>
         <text class="action-text">错题本</text>
       </view>
       <view class="action-item" bindtap="goStats">
-        <view class="action-icon chart"><text class="iconfont icon-md icon-chart"></text></view>
+        <view class="action-icon chart"><image class="icon-img icon-md" src="/assets/icons-svg/chart_primary{{theme === 'dark' ? '_dark_48' : '_48'}}.svg" /></view>
         <text class="action-text">统计分析</text>
       </view>
     </view>
