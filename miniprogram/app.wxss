@@ -93,6 +93,17 @@ page {
   opacity: 0.85;
 }
 
+/* 独立行动按钮 — 胶囊样式 */
+.btn-action {
+  width: 400rpx;
+  margin: 0 auto;
+  padding: 24rpx 0;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--bg-card);
+  border-radius: 48rpx;
+}
+
 .btn-secondary {
   background: var(--bg-secondary);
   color: var(--text-secondary);
@@ -151,6 +162,12 @@ page {
   display: inline-block;
   width: 48rpx;
   height: 48rpx;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
 
 .icon-lg {
@@ -166,4 +183,12 @@ page {
 .icon-sm {
   width: 32rpx;
   height: 32rpx;
+}
+
+.icon-primary {
+  background-color: var(--color-primary);
+}
+
+.icon-muted {
+  background-color: var(--text-tertiary);
 }

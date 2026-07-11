@@ -37,7 +37,7 @@
       <view class="tag" wx:for="{{question.tags}}" wx:key="*this">{{item}}</view>
     </view>
 
-    <view class="btn-primary detail-edit-btn" bindtap="startEdit">编辑纠错</view>
+    <view class="btn-primary btn-action detail-edit-btn" bindtap="startEdit">编辑纠错</view>
   </view>
 
   <!-- 编辑模式 -->

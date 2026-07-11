@@ -2,35 +2,35 @@
   <!-- 游客视图 -->
   <block wx:if="{{isGuest}}">
     <view class="guest-hero">
-      <view class="guest-logo"><image class="icon-img icon-lg" src="/assets/icons-svg/logo_primary{{theme === 'dark' ? '_dark' : ''}}.svg" /></view>
+      <view class="guest-logo"><view class="icon-img icon-lg icon-primary" style="-webkit-mask-image: url(/assets/icons-svg/ic_logo.svg); mask-image: url(/assets/icons-svg/ic_logo.svg);" /></view>
       <text class="guest-title">智能错题本</text>
       <text class="guest-subtitle">拍照即录入，AI 自动识别，科学复习</text>
     </view>
 
     <view class="guest-features">
       <view class="feature-item">
-        <view class="feature-icon"><image class="icon-img icon-md" src="/assets/icons-svg/camera_primary{{theme === 'dark' ? '_dark' : ''}}.svg" /></view>
+        <view class="feature-icon"><view class="icon-img icon-md icon-primary" style="-webkit-mask-image: url(/assets/icons-svg/ic_camera.svg); mask-image: url(/assets/icons-svg/ic_camera.svg);" /></view>
         <view class="feature-info">
           <text class="feature-name">拍照即录入</text>
           <text class="feature-desc">拍一张照片，自动整理错题</text>
         </view>
       </view>
       <view class="feature-item">
-        <view class="feature-icon"><image class="icon-img icon-md" src="/assets/icons-svg/ai_primary{{theme === 'dark' ? '_dark' : ''}}.svg" /></view>
+        <view class="feature-icon"><view class="icon-img icon-md icon-primary" style="-webkit-mask-image: url(/assets/icons-svg/ic_ai.svg); mask-image: url(/assets/icons-svg/ic_ai.svg);" /></view>
         <view class="feature-info">
           <text class="feature-name">AI 智能识别</text>
           <text class="feature-desc">自动提取题目、答案和错因</text>
         </view>
       </view>
       <view class="feature-item">
-        <view class="feature-icon"><image class="icon-img icon-md" src="/assets/icons-svg/calendar_primary{{theme === 'dark' ? '_dark' : ''}}.svg" /></view>
+        <view class="feature-icon"><view class="icon-img icon-md icon-primary" style="-webkit-mask-image: url(/assets/icons-svg/ic_calendar.svg); mask-image: url(/assets/icons-svg/ic_calendar.svg);" /></view>
         <view class="feature-info">
           <text class="feature-name">科学复习</text>
           <text class="feature-desc">艾宾浩斯曲线，精准安排复习</text>
         </view>
       </view>
       <view class="feature-item">
-        <view class="feature-icon"><image class="icon-img icon-md" src="/assets/icons-svg/chart_primary{{theme === 'dark' ? '_dark' : ''}}.svg" /></view>
+        <view class="feature-icon"><view class="icon-img icon-md icon-primary" style="-webkit-mask-image: url(/assets/icons-svg/ic_chart.svg); mask-image: url(/assets/icons-svg/ic_chart.svg);" /></view>
         <view class="feature-info">
           <text class="feature-name">数据驱动</text>
           <text class="feature-desc">查漏补缺，掌握学习进展</text>
@@ -39,7 +39,7 @@
     </view>
 
     <view class="guest-action">
-      <view class="btn-primary guest-try-btn" bindtap="goUpload">拍一道试试</view>
+      <view class="btn-primary btn-action" bindtap="goUpload">拍一道试试</view>
       <text class="guest-hint">免费体验 AI 识别效果</text>
     </view>
 
@@ -58,7 +58,7 @@
         <text class="review-label">今日待复习</text>
       </view>
       <view class="review-banner-right">
-        <text class="review-go" wx:if="{{todayCount > 0}}">开始复习 <image class="icon-img icon-sm" src="/assets/icons-svg/arrow_primary{{theme === 'dark' ? '_dark' : ''}}.svg" /></text>
+        <text class="review-go" wx:if="{{todayCount > 0}}">开始复习 <view class="icon-img icon-sm icon-primary" style="-webkit-mask-image: url(/assets/icons-svg/ic_arrow.svg); mask-image: url(/assets/icons-svg/ic_arrow.svg);" /></text>
         <text class="review-go done" wx:else>今日已完成 ✓</text>
       </view>
     </view>
@@ -66,15 +66,15 @@
     <!-- 快捷入口 -->
     <view class="quick-actions">
       <view class="action-item" bindtap="goUpload">
-        <view class="action-icon camera"><image class="icon-img icon-md" src="/assets/icons-svg/camera_primary{{theme === 'dark' ? '_dark' : ''}}.svg" /></view>
+        <view class="action-icon camera"><view class="icon-img icon-md icon-primary" style="-webkit-mask-image: url(/assets/icons-svg/ic_camera.svg); mask-image: url(/assets/icons-svg/ic_camera.svg);" /></view>
         <text class="action-text">拍照录入</text>
       </view>
       <view class="action-item" bindtap="goErrorList">
-        <view class="action-icon book"><image class="icon-img icon-md" src="/assets/icons-svg/book_primary{{theme === 'dark' ? '_dark' : ''}}.svg" /></view>
+        <view class="action-icon book"><view class="icon-img icon-md icon-primary" style="-webkit-mask-image: url(/assets/icons-svg/ic_book.svg); mask-image: url(/assets/icons-svg/ic_book.svg);" /></view>
         <text class="action-text">错题本</text>
       </view>
       <view class="action-item" bindtap="goStats">
-        <view class="action-icon chart"><image class="icon-img icon-md" src="/assets/icons-svg/chart_primary{{theme === 'dark' ? '_dark' : ''}}.svg" /></view>
+        <view class="action-icon chart"><view class="icon-img icon-md icon-primary" style="-webkit-mask-image: url(/assets/icons-svg/ic_chart.svg); mask-image: url(/assets/icons-svg/ic_chart.svg);" /></view>
         <text class="action-text">统计分析</text>
       </view>
     </view>

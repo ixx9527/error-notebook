@@ -1,10 +1,10 @@
 <view class="container">
   <!-- 完成状态 -->
   <view wx:if="{{completed}}" class="complete-card card">
-    <image class="complete-icon icon-lg" src="/assets/icons-svg/party_primary.svg" />
+    <view class="complete-icon icon-img icon-lg icon-primary" style="-webkit-mask-image: url(/assets/icons-svg/ic_party.svg); mask-image: url(/assets/icons-svg/ic_party.svg);" />
     <text class="complete-title">今日复习完成！</text>
     <text class="complete-desc">共复习 {{totalCompleted}} 道错题</text>
-    <view class="btn-primary" bindtap="goHome" style="margin-top: 40rpx;">返回首页</view>
+    <view class="btn-primary btn-action" style="margin-top: 40rpx;" bindtap="goHome">返回首页</view>
   </view>
 
   <!-- 复习中 -->
@@ -43,7 +43,7 @@
 
         <!-- 操作按钮 -->
         <view class="review-actions">
-          <view class="btn-primary" wx:if="{{!showAnswer}}" bindtap="toggleAnswer">
+          <view class="btn-primary btn-action" wx:if="{{!showAnswer}}" bindtap="toggleAnswer">
             查看答案
           </view>
 

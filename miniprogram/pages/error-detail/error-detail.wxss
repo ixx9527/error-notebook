@@ -30,6 +30,13 @@
   color: var(--text-secondary);
 }
 
+@media (prefers-color-scheme: dark) {
+  .detail-text.analysis {
+    background: #3D3520;
+    border-left-color: #B8960C;
+  }
+}
+
 .answer-row {
   display: flex;
   gap: 30rpx;
@@ -68,6 +75,12 @@
   border-radius: 8rpx;
   font-size: 24rpx;
   margin-bottom: 12rpx;
+}
+
+@media (prefers-color-scheme: dark) {
+  .error-type-badge {
+    background: #4A2020;
+  }
 }
 
 .detail-edit-btn {

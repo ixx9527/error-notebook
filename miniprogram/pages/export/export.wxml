@@ -55,7 +55,7 @@
     </view>
   </view>
 
-  <view class="btn-primary" bindtap="exportPdf" style="margin-top: 20rpx;">
+  <view class="btn-primary btn-action" style="margin-top: 20rpx;" bindtap="exportPdf">
     {{exporting ? '导出中...' : (tab === 'monthly' ? '生成月度报告' : '导出 PDF')}}
   </view>
 </view>

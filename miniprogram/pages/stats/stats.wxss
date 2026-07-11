@@ -122,6 +122,10 @@
 .mastery-4 { background: var(--color-success); }
 .mastery-5 { background: var(--color-success); }
 
+@media (prefers-color-scheme: dark) {
+  .mastery-3 { background: #B8960C; }
+}
+
 .mastery-count {
   width: 50rpx;
   text-align: right;
@@ -175,7 +179,7 @@
   display: flex;
   justify-content: space-between;
   padding: 16rpx 0;
-  border-bottom: 1rpx solid #f5f5f5;
+  border-bottom: 1rpx solid var(--border-color);
 }
 
 .error-type-item:last-child {

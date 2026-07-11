@@ -233,14 +233,6 @@
   line-height: 1.6;
 }
 
-.guest-login-btn {
-  width: 360rpx;
-  text-align: center;
-  padding: 24rpx 0;
-  font-size: 30rpx;
-  font-weight: 600;
-}
-
 /* Custom TabBar 底部安全距离 */
 .container {
   padding-bottom: 140rpx;

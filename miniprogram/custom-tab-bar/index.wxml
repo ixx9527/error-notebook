@@ -1,16 +1,15 @@
 <view class="tab-bar {{theme === 'dark' ? 'dark' : ''}}">
   <view class="tab-bar-inner">
-    <view 
-      wx:for="{{list}}" 
+    <view
+      wx:for="{{list}}"
       wx:key="pagePath"
       class="tab-item {{selected === index ? 'active' : ''}}"
       data-path="{{item.pagePath}}"
       bindtap="switchTab"
     >
-      <image 
-        class="tab-icon"
-        src="{{theme === 'dark' ? (selected === index ? item.selectedIconDarkPath : item.iconDarkPath) : (selected === index ? item.selectedIconPath : item.iconPath)}}"
-        mode="aspectFit"
+      <view
+        class="tab-icon {{selected === index ? 'active' : ''}}"
+        style="-webkit-mask-image: url({{item.iconPath}}); mask-image: url({{item.iconPath}});"
       />
     </view>
   </view>
