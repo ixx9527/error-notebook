@@ -2,7 +2,7 @@
   <!-- 游客视图 -->
   <block wx:if="{{isGuest}}">
     <view class="guest-profile">
-      <view class="guest-avatar"><view class="icon-img icon-lg icon-muted" style="-webkit-mask-image: url(/assets/icons-svg/ic_user.svg); mask-image: url(/assets/icons-svg/ic_user.svg);" /></view>
+      <view class="guest-avatar"><view class="icon-img icon-lg icon-muted" style="-webkit-mask-image: url(/assets/icons-svg/tab_user.svg); mask-image: url(/assets/icons-svg/tab_user.svg);" /></view>
       <text class="guest-welcome">欢迎来到错题本</text>
       <text class="guest-desc">登录后可保存错题、管理孩子信息、导出数据</text>
       <view class="btn-primary btn-action" bindtap="goLogin">登录 / 注册</view>

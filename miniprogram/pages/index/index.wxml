@@ -2,7 +2,7 @@
   <!-- 游客视图 -->
   <block wx:if="{{isGuest}}">
     <view class="guest-hero">
-      <view class="guest-logo"><view class="icon-img icon-lg icon-primary" style="-webkit-mask-image: url(/assets/icons-svg/ic_logo.svg); mask-image: url(/assets/icons-svg/ic_logo.svg);" /></view>
+      <view class="guest-logo"><view class="icon-img icon-lg icon-primary" style="-webkit-mask-image: url(/assets/icons-svg/ic_ai.svg); mask-image: url(/assets/icons-svg/ic_ai.svg);" /></view>
       <text class="guest-title">智能错题本</text>
       <text class="guest-subtitle">拍照即录入，AI 自动识别，科学复习</text>
     </view>
