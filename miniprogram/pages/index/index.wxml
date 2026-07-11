@@ -70,7 +70,7 @@
         <text class="action-text">拍照录入</text>
       </view>
       <view class="action-item" bindtap="goErrorList">
-        <view class="action-icon book"><view class="icon-img icon-md icon-primary" style="-webkit-mask-image: url(/assets/icons-svg/ic_book.svg); mask-image: url(/assets/icons-svg/ic_book.svg);" /></view>
+        <view class="action-icon book"><view class="icon-img icon-md icon-primary" style="-webkit-mask-image: url(/assets/icons-svg/tab_book.svg); mask-image: url(/assets/icons-svg/tab_book.svg);" /></view>
         <text class="action-text">错题本</text>
       </view>
       <view class="action-item" bindtap="goStats">
