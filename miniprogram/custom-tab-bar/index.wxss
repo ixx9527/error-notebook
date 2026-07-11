@@ -1,9 +1,4 @@
 /* ========== Custom Tab Bar ========== */
-:host {
-  --color-primary: #6C5CE7;
-  --text-tertiary: #B2BEC3;
-  --bg-secondary: #F0EEFF;
-}
 
 /* ========== Light Mode ========== */
 .tab-bar {
@@ -11,12 +6,12 @@
   bottom: 40rpx;
   left: 50%;
   transform: translateX(-50%);
-  width: calc(100% - 80rpx);
-  max-width: 600rpx;
+  width: calc(100% - 120rpx);
+  max-width: 480rpx;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20rpx);
   border-radius: 60rpx;
-  padding: 20rpx 32rpx;
+  padding: 16rpx 24rpx;
   box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.08);
   z-index: 1000;
 }
@@ -31,40 +26,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16rpx 32rpx;
+  padding: 14rpx 28rpx;
   border-radius: 40rpx;
   transition: all 0.3s ease;
 }
 
 .tab-item.active {
-  background: var(--bg-secondary);
+  background: #F0EEFF;
 }
 
 .tab-icon {
-  width: 48rpx;
-  height: 48rpx;
+  width: 44rpx;
+  height: 44rpx;
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
   mask-position: center;
-  background-color: var(--text-tertiary);
+  background-color: #B2BEC3;
 }
 
 .tab-icon.active {
-  background-color: var(--color-primary);
+  background-color: #6C5CE7;
 }
 
 /* ========== Dark Mode ========== */
-@media (prefers-color-scheme: dark) {
-  :host {
-    --color-primary: #A29BFE;
-    --text-tertiary: #5A5A72;
-    --bg-secondary: #2A2A3C;
-  }
-}
-
 .tab-bar.dark {
   background: rgba(30, 30, 46, 0.95);
   box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.4);
@@ -72,4 +59,12 @@
 
 .tab-bar.dark .tab-item.active {
   background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-bar.dark .tab-icon {
+  background-color: #5A5A72;
+}
+
+.tab-bar.dark .tab-icon.active {
+  background-color: #A29BFE;
 }
