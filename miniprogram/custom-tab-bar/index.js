@@ -5,24 +5,24 @@ Component({
     list: [
       {
         pagePath: "/pages/index/index",
-        iconPath: "/assets/icons-svg/home_muted_48.svg",
-        selectedIconPath: "/assets/icons-svg/home_primary_48.svg",
-        iconDarkPath: "/assets/icons-svg/home_muted_dark_48.svg",
-        selectedIconDarkPath: "/assets/icons-svg/home_primary_dark_48.svg"
+        iconPath: "/assets/icons-svg/home_muted.svg",
+        selectedIconPath: "/assets/icons-svg/home_primary.svg",
+        iconDarkPath: "/assets/icons-svg/home_muted_dark.svg",
+        selectedIconDarkPath: "/assets/icons-svg/home_primary_dark.svg"
       },
       {
         pagePath: "/pages/error-list/error-list",
-        iconPath: "/assets/icons-svg/book_muted_48.svg",
-        selectedIconPath: "/assets/icons-svg/book_primary_48.svg",
-        iconDarkPath: "/assets/icons-svg/book_muted_dark_48.svg",
-        selectedIconDarkPath: "/assets/icons-svg/book_primary_dark_48.svg"
+        iconPath: "/assets/icons-svg/book_muted.svg",
+        selectedIconPath: "/assets/icons-svg/book_primary.svg",
+        iconDarkPath: "/assets/icons-svg/book_muted_dark.svg",
+        selectedIconDarkPath: "/assets/icons-svg/book_primary_dark.svg"
       },
       {
         pagePath: "/pages/profile/profile",
-        iconPath: "/assets/icons-svg/user_muted_48.svg",
-        selectedIconPath: "/assets/icons-svg/user_primary_48.svg",
-        iconDarkPath: "/assets/icons-svg/user_muted_dark_48.svg",
-        selectedIconDarkPath: "/assets/icons-svg/user_primary_dark_48.svg"
+        iconPath: "/assets/icons-svg/user_muted.svg",
+        selectedIconPath: "/assets/icons-svg/user_primary.svg",
+        iconDarkPath: "/assets/icons-svg/user_muted_dark.svg",
+        selectedIconDarkPath: "/assets/icons-svg/user_primary_dark.svg"
       }
     ]
   },

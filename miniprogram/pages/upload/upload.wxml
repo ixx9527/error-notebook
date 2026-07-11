@@ -2,7 +2,7 @@
   <!-- 步骤1：选择图片 -->
   <view wx:if="{{currentStep === 'choose'}}" class="choose-area">
     <view class="choose-card" bindtap="chooseImage">
-      <image class="choose-icon icon-lg" src="/assets/icons-svg/camera_primary_80.svg" />
+      <image class="choose-icon icon-lg" src="/assets/icons-svg/camera_primary.svg" />
       <text class="choose-text">拍照或选择错题图片</text>
       <text class="choose-hint">支持 JPG / PNG，最大 1MB</text>
     </view>
